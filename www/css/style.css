@@ -1,0 +1,31 @@
+.blue-bg{
+  /*background: rgba(0, 0, 0, 0) linear-gradient(141deg, #0fb8ad 0%, #1fc8db 51%, #2cb5e8 75%) repeat scroll 0 0;*/
+  background-image: url(../img/bg.jpg);
+  background-size: cover;
+}
+.center-vertical{
+  position: absolute;
+  top: 30%;
+  transform: translateY(30%);
+  width: 100%;
+}
+.relative{
+  position: relative;
+}
+.white{
+  color: #FFFFFF;
+}
+.transparent-item{
+  background-color: transparent;
+}
+.text-bottom{
+  position: absolute;
+  bottom: 0px;
+  width: 100%
+}
+.take-pic{
+  font-size: 25px;
+}
+.profile-pic{
+  font-size: 150px;
+}

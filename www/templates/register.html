@@ -1,0 +1,45 @@
+<ion-view view-title="Registro" view-name="Register">
+  <ion-nav-bar class="bar-light">
+  </ion-nav-bar>
+  <ion-content class="blue-bg">
+    <div class="row">
+      <div class="col">
+        <h3 class="text-center white padding-top">Ingresa tu información</h3>
+        <div class="list">
+          <label class="item item-input">
+            <input type="text" placeholder="Nombre">
+          </label>
+          <label class="item item-input">
+            <input type="text" placeholder="Apellidos">
+          </label>
+          <label class="item item-input">
+            <input type="tel" placeholder="Teléfono">
+          </label>
+          <label class="item item-input">
+            <input type="tel" placeholder="Contacto en emergencia">
+          </label>
+          <label class="item item-input">
+            <input type="email" placeholder="Correo electrónico">
+          </label>
+          <label class="item item-input">
+            <input type="password" placeholder="Contraseña">
+          </label>
+          <div class="item">
+            <div class="row">
+              <div class="col-90">
+                <span class="input-label">Tomar fotografía de perfil</span>
+              </div>
+              <div class="col">
+                <i class="icon take-pic ion-camera"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a ng-click="goTo( 'app.dashboard' )" class="button button-block icon-right ion-chevron-right button-balanced">Continuar</a>
+      </div>
+    </div>
+  </ion-content>
+  <div class="text-bottom">
+    <h4 class="text-center white row-bottom" ng-click="goTo( 'app.login' )">Ya eres miembro?</h4>
+  </div>
+</ion-view>

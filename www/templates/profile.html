@@ -1,0 +1,58 @@
+<ion-view view-title="Mi Perfil" view-name="Profile">
+  <ion-nav-bar class="bar-assertive">
+    <ion-nav-back-button></ion-nav-back-button>
+    <h1 class="title">MY PROFILE</h1>
+    <ion-nav-buttons side="right">
+      <button ng-click="loadEdit();" class="button button-dark">Edit <i class="ion-compose"></i></button>
+    </ion-nav-buttons>
+  </ion-nav-bar>
+  <ion-content class="light-grey-bg">
+
+    <div class="item item-avatar">
+      <img width="100%" src="{{user.PhotoURL}}">
+      <h2 class="font-bold">{{user.Name}} </h2>
+      <p class="detail-text">MEMBER SINCE: <span class="font-red"> {{user.ShowAdded}}</span> </p>
+    </div>
+
+    <div class="list">
+      <a class="item" href="#" ng-click="openMyGroupsPage()"> MY GROUPS<span class="badge badge-assertive">{{user.MyGroups}}</span></a>
+      <a class="item" href="#" ng-click="openJoinedGroupsPage()"> JOINED GROUPS<span class="badge badge-assertive">{{user.JoinedGroups}}</span></a>
+    </div>
+
+    <div class="list card">
+
+      <div class="item item-body">
+        <div>
+          <div class="row" ng-repeat="item in user.Profile" on-hold="deleteItem(item.id)">
+            <p><strong>{{item.Name}}:</strong> {{item.Value}}</p>
+          </div>
+        </div>
+        <div ng-if="addToProfile.active === true">
+          <div>
+            <p>
+              <strong>Type:</strong>
+              <select ng-model="addToProfile.type" ng-change="newProfileTypeChanged()">
+                <option ng-repeat="ptitem in addProfileTypes" value="{{$index}}">{{ptitem.Name}}</option>
+              </select>
+            </p>
+          </div>
+          <div ng-if="addToProfile.typeSelected === true">
+            <div class="height-spacer-10"></div>
+            <label class="item item-input">
+              <input type="text" placeholder="{{addToProfile.typeDescription}}" ng-model="addToProfile.value">
+            </label>
+            <div>
+              <button ng-click="saveNewProfileItem()" class="button button-block button-calm">Save</button>
+            </div>
+          </div>
+        </div>
+        <div ng-if="addToProfile.active === false">
+          <button ng-click="addProfileItem()" class="button button-block button-calm">+ Add</button>
+        </div>
+
+      </div>
+
+    </div>
+
+  </ion-content>
+</ion-view>

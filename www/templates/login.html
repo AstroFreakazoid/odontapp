@@ -1,0 +1,25 @@
+<ion-view view-name="Login">
+  <ion-content class="blue-bg">
+    <div class="relative">
+      <form class="center-vertical" ng-submit="doLogin()">
+        <h1 class="text-center white">Bienvenido a Dentistapp</h1>
+        <div class="list">
+          <label class="item item-input">
+            <span class="input-label">Usuario</span>
+            <input type="text" ng-model="loginData.username">
+          </label>
+          <label class="item item-input">
+            <span class="input-label">Contraseña</span>
+            <input type="password" ng-model="loginData.password">
+          </label>
+          <label class="item transparent-item">
+            <button class="button button-block button-stable" type="submit">Iniciar Sesión</button>
+          </label>
+        </div>
+      </form>
+    </div>
+  </ion-content>
+  <div class="text-bottom">
+    <h2 class="text-center white row-bottom" ng-click="goTo( 'app.register' )">Crear una cuenta</h2>
+  </div>
+</ion-view>
