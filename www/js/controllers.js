@@ -1,6 +1,6 @@
 angular.module('dentistapp.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -27,6 +27,27 @@ angular.module('dentistapp.controllers', [])
   // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
+  };
+
+  $scope.takePic = function () {
+    var options = {
+      quality: 50,
+      destinationType: Camera.DestinationType.DATA_URL,
+      sourceType: Camera.PictureSourceType.CAMERA,
+      allowEdit: true,
+      encodingType: Camera.EncodingType.JPEG,
+      targetWidth: 100,
+      targetHeight: 100,
+      popoverOptions: CameraPopoverOptions,
+      saveToPhotoAlbum: false,
+      correctOrientation:true
+    };
+    $cordovaCamera.getPicture(options).then(function(imageData) {
+      var image = document.getElementById('myImage');
+      image.src = "data:image/jpeg;base64," + imageData;
+    }, function(err) {
+      // error
+    });
   };
 
   // Perform the login action when the user submits the login form

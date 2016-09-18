@@ -25,7 +25,7 @@
             <input type="password" placeholder="Contraseña">
           </label>
           <div class="item">
-            <div class="row">
+            <div class="row" ng-click="takePic()">
               <div class="col-90">
                 <span class="input-label">Tomar fotografía de perfil</span>
               </div>
@@ -36,10 +36,8 @@
           </div>
         </div>
         <a ng-click="goTo( 'app.dashboard' )" class="button button-block icon-right ion-chevron-right button-balanced">Continuar</a>
+        <h4 class="text-center white row-bottom" ng-click="goTo( 'app.login' )">Ya eres miembro?</h4>
       </div>
     </div>
   </ion-content>
-  <div class="text-bottom">
-    <h4 class="text-center white row-bottom" ng-click="goTo( 'app.login' )">Ya eres miembro?</h4>
-  </div>
 </ion-view>
