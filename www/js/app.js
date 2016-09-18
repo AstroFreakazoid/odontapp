@@ -4,7 +4,11 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('dentistapp', ['ionic', 'dentistapp.controllers', 'dentistapp.services'])
+angular.module('dentistapp',
+  ['ionic',
+    'ngCordova',
+    'dentistapp.controllers',
+    'dentistapp.services'])
 
 .run(function($ionicPlatform, AppService) {
   $ionicPlatform.ready(function() {
