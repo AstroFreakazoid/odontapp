@@ -35,7 +35,15 @@ angular.module('dentistapp',
       templateUrl: 'templates/menu.html',
       controller: 'AppCtrl'
     })
-
+    .state('app.register', {
+      url: '/register',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/register.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
     .state('app.login', {
       url: '/login',
       controller: 'AppCtrl',
@@ -45,22 +53,12 @@ angular.module('dentistapp',
         }
       }
     })
-
     .state('app.dashboard', {
       url: '/dashboard',
       controller: 'AppCtrl',
       views: {
         'menuContent': {
           templateUrl: 'templates/dashboard.html'
-        }
-      }
-    })
-    .state('app.register', {
-      url: '/register',
-      controller: 'AppCtrl',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/register.html'
         }
       }
     });
