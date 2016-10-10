@@ -6,6 +6,7 @@
 // 'starter.controllers' is found in controllers.js
 angular.module('dentistapp',
   ['ionic',
+    'onezone-datepicker',
     'ngCordova',
     'dentistapp.controllers',
     'dentistapp.services'])
@@ -53,6 +54,24 @@ angular.module('dentistapp',
         }
       }
     })
+    .state('app.messages', {
+      url: '/messages',
+      controller: 'AppCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/messages.html',
+        }
+      }
+    })
+    .state('app.history', {
+    url: '/history',
+    controller: 'AppCtrl',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/history.html',
+      }
+    }
+  })
     .state('app.dashboard', {
       url: '/dashboard',
       controller: 'AppCtrl',
@@ -61,7 +80,34 @@ angular.module('dentistapp',
           templateUrl: 'templates/dashboard.html'
         }
       }
-    });
+    })
+    .state('app.questionary', {
+      url: '/questionary',
+      controller: 'AppCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/questionary.html'
+        }
+      }
+    })
+    .state('app.calendar', {
+      url: '/calendar',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/calendar.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
+    .state('app.settings', {
+    url: '/settings',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/settings.html',
+        controller: 'AppCtrl'
+      }
+    }
+  });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/register');
 });

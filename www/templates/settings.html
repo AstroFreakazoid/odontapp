@@ -1,0 +1,20 @@
+<ion-view view-title="Configuraciones">
+  <ion-content class="has-header blue-bg padding">
+    <div top-directive></div>
+    <p class="padding">Esta pantalla te permite elegir las opciones de privacidad y lenguaje dentro de la aplicación.</p>
+    <h4 class="padding">Notificaciones</h4>
+    <ion-toggle toggle-class="toggle-balanced"><p>Deseo ser notificado sobre espacios disponibles previos a su cita?</p></ion-toggle>
+    <ul class="list">
+      <li class="item item-input item-select">
+        <div class="input-label">Lenguaje</div>
+        <select ng-model="settings.lang">
+          <option value="es">Español</option>
+          <option value="en">English</option>
+        </select>
+      </li>
+    </ul>
+    <div class="padding">
+      <button class="button button-block button-calm" ng-click="saveSettings()">Guardar cambios</button>
+    </div>
+  </ion-content>
+</ion-view>

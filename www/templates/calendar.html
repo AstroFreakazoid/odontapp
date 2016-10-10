@@ -1,0 +1,19 @@
+<ion-view view-title="Calendario">
+  <ion-content scroll="false" class="has-header padding">
+    <onezone-datepicker datepicker-object="calendar"></onezone-datepicker>
+    <div>
+      <ion-scroll scroll="true" zooming="false" direction="y">
+        <div class="list">
+          <div class="card" ng-repeat="item in appointments">
+            <h4>{{item.title}}</h4>
+            <div class="item">
+              <p><i class="icon ion-ios-timer"></i> {{item.datetime}}</p>
+              <p><i class="icon ion-ios-location"></i> {{item.place}}</p>
+              <p>{{item.text}}</p>
+            </div>
+          </div>
+        </div>
+      </ion-scroll>
+    </div>
+  </ion-content>
+</ion-view>
