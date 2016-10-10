@@ -1,0 +1,38 @@
+<ion-view view-title="Mensajes">
+  <ion-content class="has-header blue-bg">
+  <div ng-repeat="item in messages">
+    <div ng-if="item.photoURL != null">
+      <div class="talk-bubble round" ng-if="item.isMe === true">
+        <div class="talkimage">
+          <video webkit-playsinline playsinline controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" ng-if="item.isVideo === true">
+            <source ng-src="{{item.PhotoURL}}" type="video/mp4">
+          </video>
+          <img class="chatFromMeImage" src="{{item.photoURL}}" ng-if="item.isVideo === false">
+          <p class="chatFromMeDate">{{item.timeDateString}}</p>
+        </div>
+      </div>
+      <div class="talk-bubble talk-bubble-left round left-in chatFromThem" ng-if="item.isMe === false">
+        <div class="talkimage">
+          <video webkit-playsinline playsinline controls="controls" preload="metadata" webkit-playsinline="webkit-playsinline" ng-if="item.isVideo === true">
+            <source ng-src="{{item.photoURL}}" type="video/mp4">
+          </video>
+          <img class="chatFromThemImage" ng-src="{{item.photoURL}}" ng-if="item.isVideo === false">
+          <p class="chatFromThemDate"><strong ng-if="user.isGroup === true || user.isGroupAdmin === true">{{item.name}}: </strong>{{item.timeDateString}}</p>
+        </div>
+      </div>
+    </div>
+    <div ng-if="item.messageText != null">
+      <div class="talk-bubble tri-right round right-in chatFromMe" ng-if="item.isMe === true">
+        <div class="talktext">
+          <p class="chatFromMe">{{item.messageText}}</p>
+          <p ng-if="item.isMe === true" class="chatFromMeDate">{{item.timeDateString}}</p>
+        </div>
+      </div>
+      <div class="talk-bubble talk-bubble-left tri-right round left-in chatFromThem" ng-if="item.isMe === false">
+        <div class="talktext">
+          <p>{{item.messageText}}</p>
+          <p ng-if="item.isMe === false" class="chatFromThemDate"><strong ng-if="user.isGroup === true || user.isGroupAdmin === true">{{item.name}}: </strong>{{item.timeDateString}}</p>
+        </div>
+      </div>
+    </div>
+  </div>

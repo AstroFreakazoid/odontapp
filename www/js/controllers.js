@@ -1,34 +1,52 @@
 angular.module('dentistapp.controllers', [])
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera) {
-
-  // With the new view caching in Ionic, Controllers are only called
-  // when they are recreated or on app start, instead of every page change.
-  // To listen for when this page is active (for example, to refresh data),
-  // listen for the $ionicView.enter event:
-  //$scope.$on('$ionicView.enter', function(e) {
-  //});
-
-  // Form data for the login modal
   $scope.loginData = {};
 
-  // Create the login modal that we will use later
   $ionicModal.fromTemplateUrl('templates/login.html', {
     scope: $scope
   }).then(function(modal) {
     $scope.modal = modal;
   });
 
-  // Triggered in the login modal to close it
   $scope.closeLogin = function() {
     $scope.modal.hide();
   };
 
-  // Open the login modal
   $scope.login = function() {
     $scope.modal.show();
   };
 
+  $scope.appointments = [
+    {
+      title: 'Extracción de molar',
+      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+      place: 'Consultorio Doctor Castro.',
+      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+    },
+    {
+      title: 'Extracción de molar',
+      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+      place: 'Consultorio Doctor Castro.',
+      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+    },
+    {
+      title: 'Extracción de molar',
+      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+      place: 'Consultorio Doctor Castro.',
+      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+    },
+    {
+      title: 'Extracción de molar',
+      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+      place: 'Consultorio Doctor Castro.',
+      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+    }
+  ];
+
+  $scope.saveSettings = function () {
+
+  };
   $scope.takePic = function () {
     var options = {
       quality: 50,
@@ -55,26 +73,104 @@ angular.module('dentistapp.controllers', [])
     console.log('Doing login', $scope.loginData);
     if( ( $scope.loginData.username == 'usuario' ) && ( $scope.loginData.password == 'usuario' ) ){
       AppService.setUser( $scope.loginData );
-      $rootScope.goTo( 'app.welcome' );
+      $rootScope.goTo( 'app.dashboard' );
     }
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
     $timeout(function() {
       $scope.closeLogin();
     }, 1000);
   };
-})
 
-.controller('PlaylistsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
+  $scope.calendar = {
+    date: new Date(),
+    mondayFirst: false,
+    months: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" ],
+    calendarWeekdayHeaders: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    startDate: new Date(),
+    endDate: new Date( ( new Date().getFullYear() ), 11, 31 ),
+    disablePastDays: true,
+    disableSwipe: true,
+    disableWeekend: true,
+    disableDates: false,
+    disableDaysOfWeek: false,
+    showDatepicker: true,
+    showTodayButton: true,
+    calendarMode: true,
+    hideCancelButton: true,
+    hideSetButton: false,
+    highlights: [
+      {
+        date: new Date(2016, 1, 7),
+        color: '#8FD4D9',
+        textColor: '#fff'
+      },
+      {
+        date: new Date(2016, 1, 18)
+      },
+      {
+        date: new Date(2016, 1, 19)
+      },
+      {
+        date: new Date(2016, 1, 20)
+      }
+    ],
+    callback: function(value){
+      // your code
+    }
+  };
+  $scope.messages = [
+    {
+      photoURL: null,
+      isVideo: false,
+      isMe: false,
+      timeDateString: 'hace 25 min',
+      isGroup: true,
+      messageText: 'Hola Elías, recuerda utilizar bien el hilo dental sin dañar las encías.',
+      name: 'Dr. Castro'
+    },
+    {
+      photoURL: null,
+      isVideo: false,
+      isMe: true,
+      timeDateString: 'hace 10 min',
+      isGroup: true,
+      messageText: 'Sí señor, muchas gracias por el arreglo de hoy, ya me siento mucho mejor.',
+      name: 'Elías Gómez'
+    },
+    {
+      photoURL: null,
+      isVideo: false,
+      isMe: false,
+      timeDateString: 'hace 5 min',
+      isGroup: true,
+      messageText: 'Hola Elías, recuerda utilizar bien el hilo dental sin dañar las encías.',
+      name: 'Dr. Castro'
+    },
+    {
+      photoURL: null,
+      isVideo: false,
+      isMe: true,
+      timeDateString: 'hace 1 min',
+      isGroup: true,
+      messageText: 'Sí señor, muchas gracias por el arreglo de hoy, ya me siento mucho mejor.',
+      name: 'Elías Gómez'
+    },
+    {
+      photoURL: null,
+      isVideo: false,
+      isMe: false,
+      timeDateString: 'hace 40 seg',
+      isGroup: true,
+      messageText: 'Hola Elías, recuerda utilizar bien el hilo dental sin dañar las encías.',
+      name: 'Dr. Castro'
+    },
+    {
+      photoURL: null,
+      isVideo: false,
+      isMe: true,
+      timeDateString: 'hace 10 seg',
+      isGroup: true,
+      messageText: 'Sí señor, muchas gracias por el arreglo de hoy, ya me siento mucho mejor.',
+      name: 'Elías Gómez'
+    }
   ];
-})
-
-.controller('PlaylistCtrl', function($scope, $stateParams) {
 });
