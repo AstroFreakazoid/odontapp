@@ -1,37 +1,29 @@
-<ion-view hide-back-button="true" view-title="Dashboard">
-  <ion-content class="has-header blue-bg padding">
-    <div class="padding">
-      <h3 class="text-center">Principal</h3>
-      <div class="list">
-        <div class="row">
-          <div class="col col-50">
-            <button class="button button-block button-assertive">Citas</button>
-          </div>
-          <div class="col col-50">
-            <button class="button button-block button-calm">Historial</button>
-          </div>
+<ion-view hide-back-button="true" view-title="DentistApp">
+  <ion-content class="has-header padding">
+    <div class="list">
+        <h4 class="text-center">Proxima Cita</h4>
+        <div class="item">
+          <p><i class="icon ion-ios-timer"></i> 17 de Octubre, 12:00 m.d.</p>
+          <p><i class="icon ion-ios-location"></i> Consultorio Doctor Lopez</p>
+          <p>No comer 3 horas antes de la cita.</p>
         </div>
-
-        <div class="row">
-          <div class="col col-50">
-            <button class="button button-block button-assertive">Mensajes</button>
-          </div>
-          <div class="col col-50">
-            <button class="button button-block button-calm">Cotizaciones</button>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col col-50">
-            <button class="button button-block button-assertive">Pagos</button>
-          </div>
-          <div class="col col-50">
-            <button class="button button-block button-calm">Notificar</button>
-          </div>
-        </div>
-
       </div>
-
+    </div>
+    <div class="box news" ng-repeat="item in articles" class="item item-text-wrap">
+      <div class="row news-title">
+        <div class="col col-80 text-left">
+          <h5>{{item.title}}</h5></div>
+      </div>
+      <div class="news-cover" ng-style="{'background-image':'url(img/noticia.jpg)'}">
+      </div>
+      <div class="row clearfix">
+        <div class="news-data" ng-click="toggleItem(item)" class="item-expand-footer">
+          <h4>{{item.subtitle}}</h4>
+          <p ng-class="isItemShown(item) ? 'item-expand active' : 'item-expand inactive'">{{item.body}}</p>
+          <i ng-class="isItemShown(item) ? 'ion-ios-minus-outline' : 'ion-ios-plus-outline'"></i>
+          Leer {{ isItemShown(item) ? 'Menos' : 'Más' }}
+        </div>
+      </div>
     </div>
   </ion-content>
 </ion-view>
