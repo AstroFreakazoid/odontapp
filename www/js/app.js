@@ -81,6 +81,15 @@ angular.module('dentistapp',
         }
       }
     })
+    .state('app.profile', {
+      url: '/profile',
+      controller: 'AppCtrl',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/profile.html'
+        }
+      }
+    })
     .state('app.questionary', {
       url: '/questionary',
       controller: 'AppCtrl',
@@ -99,6 +108,15 @@ angular.module('dentistapp',
         }
       }
     })
+    .state('app.appointment', {
+      url: '/appointment',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/appointment.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
     .state('app.settings', {
     url: '/settings',
     views: {
@@ -109,5 +127,5 @@ angular.module('dentistapp',
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/register');
+  $urlRouterProvider.otherwise('/app/login');
 });

@@ -114,7 +114,7 @@ angular.module('dentistapp.controllers', [])
       }
     ],
     callback: function(value){
-      // your code
+      $rootScope.goTo('app.appointment');
     }
   };
   $scope.messages = [
@@ -173,4 +173,32 @@ angular.module('dentistapp.controllers', [])
       name: 'Elías Gómez'
     }
   ];
+  $scope.articles = [
+    {
+      id : 0,
+      title : 'ELECCIONES 2018',
+      subtitle : 'Las muchas preguntas del pueblo sobre nuestros candidatos',
+      img : 'img/noticia.jpg',
+      body : 'Al ser las 8:00 p.m,  Oscar Arias Sánchez dará a conocer en cadena nacional de televisión su futuro político, pero desde ya  los politólogos aseguran que con esto el exmandatario busca salir “por la puerta grande” y anticipan las razones por las que dirá no a una contienda por la candidatura.',
+      date_time : '2016-01-01'
+    },
+    {
+      id : 0,
+      title : 'ELECCIONES 2018',
+      subtitle : 'Las muchas preguntas del pueblo sobre nuestros candidatos',
+      img : 'img/noticia.jpg',
+      body : 'Al ser las 8:00 p.m,  Oscar Arias Sánchez dará a conocer en cadena nacional de televisión su futuro político, pero desde ya  los politólogos aseguran que con esto el exmandatario busca salir “por la puerta grande” y anticipan las razones por las que dirá no a una contienda por la candidatura.',
+      date_time : '2016-01-01'
+    }
+  ];
+  $scope.toggleItem= function(item) {
+    if ($scope.isItemShown(item)) {
+      $scope.shownItem = null;
+    } else {
+      $scope.shownItem = item;
+    }
+  };
+  $scope.isItemShown = function(item) {
+    return $scope.shownItem === item;
+  };
 });

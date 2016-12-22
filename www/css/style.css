@@ -111,3 +111,29 @@ ion-scroll[direction=y] {
   text-align: center;
   color: #FFFFFF;
 }
+.news-tabs {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.news-wrapper{
+  width: 100%;
+}
+.news-cover{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  height: 200px;
+  overflow: hidden;
+}
+.news-avatar img{
+  padding-top: 5px;
+  width: 16px;
+}
+.news-title{
+  height: 45px;
+}
+.news-title h5{
+  font-weight: bold;
+}
