@@ -6,34 +6,64 @@
     <ion-slides slider="data.slider">
       <ion-slide-page ng-repeat="item in questionsList">
         <div class="box">
-          <h1></h1><br><br><br><br><br>
+          <h1></h1><br><br>
           <div class="center-img">
             <img src="../img/ionic.png" alt="">
           </div>
           <br>
           <div class="question">
             <h3>{{ item.question }}</h3><br><br>
-            <div ng-if="item.answers.length == 1" class="one-answer">
-              <label class="item item-input">
-                <input type="text" placeholder="{{ item.answers[0] }}">
-              </label>
-            </div>
-            <div ng-if="item.answers.length == 2" class="two-answer">
-              <div class="button-bar">
-                <a class="button balanced">{{ item.answers[0] }}</a>
-                <a class="button assertive">{{ item.answers[1] }}</a>
+
+            <div class="answers-box">
+              <div ng-if="item.answers.length == 1" class="one-answer">
+                <label class="item item-input">
+                  <input ng-repeat="ans1 in item.answers"
+                         type="text"
+                         id="{{ ans1['id'] }}"
+                         placeholder="{{ ans1['text'] }}" />
+                </label>
               </div>
-            </div>
-            <div ng-if="item.answers.length == 3" class="three-answer">
-              <div class="button-bar">
-                <a class="button balanced" id="a-bueno" ng-click="correctAnswer()">{{ item.answers[0] }}</a>
-                <a class="button assertive" id="a-malo" ng-click="badAnswer()">{{ item.answers[1] }}</a>
-                <a class="button positive" id="a-regular" ng-click="sosoAnswer()">{{ item.answers[2] }}</a>
+              <div ng-if="item.answers.length == 2" class="two-answer">
+                <div class="button-bar">
+                  <a ng-repeat="ans2 in item.answers"
+                     class="button {{ ans2.color }}"
+                     ng-click="ans2['action']"
+                     id="{{ ans2['id'] }}" >
+                      {{ ans2['text'] }}
+                  </a>
+                </div>
               </div>
+              <div ng-if="item.answers.length == 3" class="three-answer">
+                <div class="button-bar">
+                  <a ng-repeat="ans3 in item.answers"
+                     class="button {{ ans3['color'] }}"
+                     id="{{ ans3['id'] }}"
+                     ng-click="{{ ans3['action'] }}">
+                      {{  ans3['text'] }}
+                  </a>
+                </div>
+              </div>
+              <div ng-if="item.answers.length == 5" class="fifth-answer">
+                <div class="button-bar">
+
+                  <ion-list>
+                    <ion-item ng-repeat="ans5 in item.answers">
+                      <ion-checkbox class="button {{ ans5['color'] }}"
+                                    id="{{ ans5['id'] }}"
+                                    ng-click="{{ ans5['action'] }}"  >
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; {{  ans5['text'] }}
+                      </ion-checkbox>
+                    </ion-item>
+                  </ion-list>
+
+                </div>
+              </div>
+
             </div>
+
           </div>
         </div>
-        <button class="button button-assertive help-btn" ng-click="showQuestionsHelp(item.help)">
+        <button class="button button-positive help-btn" ng-click="showQuestionsHelp(item.help)">
           Ayuda
         </button>
       </ion-slide-page>
