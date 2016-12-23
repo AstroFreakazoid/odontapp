@@ -1,6 +1,6 @@
 angular.module('dentistapp.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera) {
+.controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera, $ionicPopup) {
   $scope.loginData = {};
 
   $ionicModal.fromTemplateUrl('templates/login.html', {
@@ -201,4 +201,86 @@ angular.module('dentistapp.controllers', [])
   $scope.isItemShown = function(item) {
     return $scope.shownItem === item;
   };
+  $scope.questionsList = [
+    {
+      question: "Cual es su estado de salud?",
+      answers: [ "Bueno", "Malo", "Regular" ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "En los últimos dos años ha sufrido cambios de salud?",
+      answers: [ "Si", "No" ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "Cuándo fue su último exámen médico? 2016-01-23",
+      answers: [ "Ingrese una fecha" ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "Está actualmente bajo algún tratamiento médico?",
+      answers: [ "Si", "No" ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "Fuma usted? R/Si",
+      answers: [ "Si", "No" ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    }
+  ];
+
+  $scope.showQuestionsHelp = function(help) {
+    $scope.data = {};
+
+    // An elaborate, custom popup
+    var myPopup = $ionicPopup.show({
+      title: "Ayuda",
+      subTitle: help,
+      template: '<div class="center-img" ><img src="../img/ionic.png"></img></div>',
+      scope: $scope,
+      buttons: [
+        { text: 'Mas Info.' },
+        { text: 'Continuar' }
+      ]
+    });
+
+    myPopup.then(function(res) {
+      console.log('Tapped!', res);
+    });
+
+    /*
+    $timeout(function() {
+      myPopup.close(); //close the popup after 3 seconds for some reason
+    }, 3000);
+    */
+  };
+
+  $scope.correctAnswer = function(){
+    this.animateAnswer( "../img/check.png", ["a-bueno","a-malo","a-regular"] );
+  };
+  $scope.badAnswer = function(){
+    this.animateAnswer( "../img/bad.png", ["a-bueno","a-malo","a-regular"] );
+  };
+  $scope.sosoAnswer = function(){
+    this.animateAnswer( "../img/hand.png", ["a-bueno","a-malo","a-regular"] );
+  };
+
+  $scope.animateAnswer = function(path, ids){
+    this.disabledButons(ids); // disabled buttons
+    var myEl = angular.element( document.querySelector( '#icon-answer' ) );
+    myEl.children(0).removeClass('hide');
+    myEl.children(0).attr("src", path);
+    myEl.addClass('animateAnswer');
+    $timeout(function(){
+      myEl.removeClass('animateAnswer');
+      myEl.children(0).addClass('hide');
+    }, 2000);
+  };
+
+  $scope.disabledButons = function(ids){
+    for(var i = 0; i < ids.length ; i++){
+      angular.element( document.querySelector( '#' + ids[i] ) ).attr("disabled", "disabled");
+    }
+  };
+
 });
