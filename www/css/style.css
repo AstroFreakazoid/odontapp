@@ -137,3 +137,40 @@ ion-scroll[direction=y] {
 .news-title h5{
   font-weight: bold;
 }
+.color-lightblue{
+  background-color: lightblue;
+}
+
+.center-img{
+  text-align: center;
+  margin: 0 auto;
+}
+
+.help-btn{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+#icon-answer{
+  position: absolute;
+  bottom: 25px;
+  left: 0;
+  right: 0;
+  z-index: 999;
+  transition: 1s all;
+}
+#icon-answer > img{
+  width: 80px;
+
+}
+
+.animateAnswer{
+  -webkit-animation: desva 1s linear; /* Safari 4.0 - 8.0 */
+  animation: desva 1s linear;
+}
+
+@keyframes desva {
+  0% { transform: translateY(125px); }
+  100% { transform: translateY(0px); }
+}
