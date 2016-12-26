@@ -56,7 +56,7 @@ angular.module('dentistapp.controllers', [])
     date: new Date(),
     mondayFirst: false,
     months: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" ],
-    calendarWeekdayHeaders: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    calendarWeekdayHeaders: ["D", "L", "M", "K", "J", "V", "S"],
     startDate: new Date(),
     endDate: new Date( ( new Date().getFullYear() ), 11, 31 ),
     disablePastDays: true,
@@ -490,7 +490,7 @@ angular.module('dentistapp.controllers', [])
     var myPopup = $ionicPopup.show({
       title: "Ayuda",
       subTitle: help,
-      template: '<div class="center-img" ><img src="../img/ionic.png" /></div>',
+      template: '<div class="center-img" ><img src="img/ionic.png" /></div>',
       scope: $scope,
       buttons: [
         { text: 'Mas Info.' },
@@ -510,20 +510,13 @@ angular.module('dentistapp.controllers', [])
   };
 
   $scope.q1_good = function(){
-    this.animateAnswer( "../img/check.png" );
-
-    alert("GOOD ANSWER");
-
+    this.animateAnswer( "img/check.png" );
   };
   $scope.q1_bad = function(){
-    this.animateAnswer( "../img/bad.png" );
-
-    alert("BAD ANSWER");
+    this.animateAnswer( "img/bad.png" );
   };
   $scope.q1_soso = function(){
-    this.animateAnswer( "../img/hand.png" );
-
-    alert("SOSO ANSWER");
+    this.animateAnswer( "img/hand.png" );
   };
 
   $scope.animateAnswer = function(path){
@@ -547,8 +540,8 @@ angular.module('dentistapp.controllers', [])
 })
   .controller('LoginCtrl', function($scope, $rootScope, AppService) {
     $scope.user = {
-      nick : null,
-      pass : null
+      nick : 'usuario',
+      pass : 'usuario'
     };
     $scope.goLogin = function() {
        if( AppService.login( $scope.user.nick, $scope.user.pass ) ){

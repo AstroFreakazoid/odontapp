@@ -27,20 +27,20 @@ angular.module('dentistapp',
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.navBar.alignTitle('center');
   $stateProvider
-
     .state('app', {
       url: '/app',
       abstract: true,
       templateUrl: 'templates/menu.html',
-      controller: 'LoginCtrl'
+      controller: 'AppCtrl'
     })
     .state('app.register', {
       url: '/register',
-      controller: 'LoginCtrl',
       views: {
         'menuContent': {
+          controller: 'LoginCtrl',
           templateUrl: 'templates/register.html',
 
         }
@@ -48,34 +48,61 @@ angular.module('dentistapp',
     })
     .state('app.messages', {
       url: '/messages',
-      controller: 'LoginCtrl',
       views: {
         'menuContent': {
+          controller: 'AppCtrl',
           templateUrl: 'templates/messages.html',
         }
       }
     })
-    .state('app.history', {
-    url: '/history',
-    controller: 'LoginCtrl',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/history.html',
-      }
-    }
-  })
-    .state('app.dashboard', {
-      url: '/dashboard',
-      controller: 'LoginCtrl',
+    .state('app.settings', {
+      url: '/settings',
       views: {
         'menuContent': {
+          templateUrl: 'templates/settings.html',
+          controller: 'AppCtrl'
+        }
+      }
+    })
+    .state('app.login', {
+      url: '/login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html',
+          controller: 'LoginCtrl'
+        }
+      }
+    })
+    .state('app.history', {
+      url: '/history',
+      views: {
+        'menuContent': {
+          controller: 'AppCtrl',
+          templateUrl: 'templates/history.html',
+        }
+      }
+    })
+    .state('app.dashboard', {
+      url: '/dashboard',
+      views: {
+        'menuContent': {
+          controller: 'AppCtrl',
           templateUrl: 'templates/dashboard.html'
+        }
+      }
+    })
+    .state('app.payment', {
+      url: '/payment',
+      views: {
+        'menuContent': {
+          controller: 'AppCtrl',
+          templateUrl: 'templates/payment.html'
         }
       }
     })
     .state('app.profile', {
       url: '/profile',
-      controller: 'LoginCtrl',
+      controller: 'AppCtrl',
       views: {
         'menuContent': {
           templateUrl: 'templates/profile.html'
@@ -84,10 +111,11 @@ angular.module('dentistapp',
     })
     .state('app.questionary', {
       url: '/questionary',
-      controller: 'LoginCtrl',
       views: {
         'menuContent': {
+          controller: 'AppCtrl',
           templateUrl: 'templates/questionary.html'
+
         }
       }
     })
@@ -96,7 +124,7 @@ angular.module('dentistapp',
       views: {
         'menuContent': {
           templateUrl: 'templates/calendar.html',
-          controller: 'LoginCtrl'
+          controller: 'AppCtrl'
         }
       }
     })
@@ -105,25 +133,7 @@ angular.module('dentistapp',
       views: {
         'menuContent': {
           templateUrl: 'templates/appointment.html',
-          controller: 'LoginCtrl'
-        }
-      }
-    })
-    .state('app.settings', {
-    url: '/settings',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/settings.html',
-        controller: 'LoginCtrl'
-      }
-    }
-  })
-    .state('app.login', {
-      url: '/login',
-      controller: 'LoginCtrl',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/login.html',
+          controller: 'AppCtrl'
         }
       }
     });

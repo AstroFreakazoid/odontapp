@@ -1,19 +1,14 @@
 <ion-view hide-back-button="true" view-title="Expediente">
-  <ion-nav-bar class="bar-light">
-  </ion-nav-bar>
-  <ion-content class="has-header blue-bg history" scroll="false">
-
+  <ion-content class="has-header padding blue-bg history" scroll="false">
     <ion-slides slider="data.slider">
       <ion-slide-page ng-repeat="item in questionsList">
         <div class="box">
           <h1></h1><br>
           <div class="center-img">
-            <img src="../img/ionic.png" alt="">
+            <img src="img/ionic.png" alt="">
           </div>
-
           <div class="question">
             <h3>{{ item.question }}</h3><br>
-
             <div class="answers-box">
               <div ng-if="item.answers.length == 1" class="one-answer">
                 <label class="item item-input">
@@ -68,21 +63,16 @@
                       </ion-item>
                     </ion-list>
                   </ion-scroll>
-
-
                 </div>
               </div>
-
             </div>
-
           </div>
         </div>
-
         <span class="ion-help-circled help-btn" style="font-size: 50px;color: #fff;" ng-click="showQuestionsHelp(item.help)"></span>
       </ion-slide-page>
     </ion-slides>
     <div class="center-img" id="icon-answer">
-      <img class="hide" src="../img/bad.png" id="image-answer" alt="">
+      <img class="hide" src="img/bad.png" id="image-answer" alt="">
     </div>
   </ion-content>
 </ion-view>
