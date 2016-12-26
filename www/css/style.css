@@ -171,6 +171,6 @@ ion-scroll[direction=y] {
 }
 
 @keyframes desva {
-  0% { transform: translateY(125px); }
+  0% { transform: translateY(205px); }
   100% { transform: translateY(0px); }
 }
