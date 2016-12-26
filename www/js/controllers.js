@@ -1,19 +1,4 @@
 angular.module('dentistapp.controllers', [])
-
-
-  .controller('LoginCtrl', function($scope, $ionicHistory, $ionicSideMenuDelegate) {
-    $scope.loginData = {};
-    $scope.doLogin = function() {
-      console.log('Doing login', $scope.loginData);
-      if( ( $scope.loginData.username == 'usuario' ) && ( $scope.loginData.password == 'usuario' ) ){
-        AppService.setUser( $scope.loginData );
-        $ionicSideMenuDelegate.canDragContent(true);
-        $rootScope.goTo( 'app.dashboard' );
-      } else{
-        AppService.showMessage( 'Información incorrecta', 'El usuario y/o la contraseña son incorrectos.' );
-      }
-    };
-  })
   .controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera, $ionicPopup) {
 
     $scope.appointments = [
@@ -558,4 +543,18 @@ angular.module('dentistapp.controllers', [])
     }
   };
 */
-});
+
+})
+  .controller('LoginCtrl', function($scope, $rootScope, AppService) {
+    $scope.user = {
+      nick : null,
+      pass : null
+    };
+    $scope.goLogin = function() {
+       if( AppService.login( $scope.user.nick, $scope.user.pass ) ){
+       $rootScope.goTo( 'app.dashboard' );
+       } else{
+       AppService.showMessage( 'Información incorrecta', 'El usuario y/o la contraseña son incorrectos.' );
+       }
+    };
+  });
