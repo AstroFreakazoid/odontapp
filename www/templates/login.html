@@ -3,22 +3,22 @@
   </ion-nav-bar>
   <ion-content class="blue-bg">
     <div class="relative">
-      <form class="center-vertical">
+      <div class="center-vertical">
         <h1 class="text-center white">Bienvenido a Dentistapp</h1>
         <div class="list">
           <label class="item item-input">
             <span class="input-label">Usuario</span>
-            <input type="text" ng-model="loginData.username">
+            <input type="text" ng-model="user.nick">
           </label>
           <label class="item item-input">
             <span class="input-label">Contraseña</span>
-            <input type="password" ng-model="loginData.password">
+            <input type="password" ng-model="user.pass">
           </label>
           <label class="item transparent-item">
-            <button class="button button-block button-stable" ng-click="doLogin()">Iniciar Sesión</button>
+            <button class="button button-block button-stable" ng-click="goLogin()">Iniciar Sesión</button>
           </label>
         </div>
-      </form>
+      </div>
     </div>
   </ion-content>
   <div class="text-bottom">
