@@ -220,13 +220,13 @@ angular.module('dentistapp.controllers', [])
       answers: [
         {
           id: "q2-a1",
-          action: "",
+          action: "q1_soso()",
           text: "Si",
           color: "positive"
         },
         {
           id: "q2-a2",
-          action: "",
+          action: "q1_good()",
           text: "No",
           color: "balanced"
         }
@@ -238,7 +238,7 @@ angular.module('dentistapp.controllers', [])
       answers: [
         {
           id: "q3-a1",
-          action: "",
+          action: "q1_good()",
           text: "Ingrese una fecha",
           color: "balanced"
         }
@@ -249,13 +249,13 @@ angular.module('dentistapp.controllers', [])
       answers: [
         {
           id: "q4-a1",
-          action: "",
+          action: "q1_good()",
           text: "Si",
           color: "balanced"
         },
         {
           id: "q4-a2",
-          action: "",
+          action: "q1_soso()",
           text: "No",
           color: "positive"
         }
@@ -267,13 +267,13 @@ angular.module('dentistapp.controllers', [])
       answers: [
         {
           id: "q5-a1",
-          action: "",
+          action: "q1_bad()",
           text: "Si",
           color: "assertive"
         },
         {
           id: "q5-a2",
-          action: "",
+          action: "q1_good()",
           text: "No",
           color: "balanced"
         }
@@ -351,6 +351,150 @@ angular.module('dentistapp.controllers', [])
         }
       ],
       help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿Padece usted alguna de las siguientes condiciones?",
+      answers: [
+        {
+          id: "q8-a1",
+          action: "",
+          text: "Tratamiento Psiquiatrico",
+          color: "positive"
+        },
+        {
+          id: "q8-a2",
+          action: "",
+          text: "Asma",
+          color: "positive"
+        },
+        {
+          id: "q8-a3",
+          action: "",
+          text: "Diabetes",
+          color: "positive"
+        },
+        {
+          id: "q8-a4",
+          action: "",
+          text: "Presion alteral alta",
+          color: "positive"
+        },
+        {
+          id: "q8-a5",
+          action: "",
+          text: "Presion alteral baja",
+          color: "positive"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿Padece usted alguna de las siguientes condiciones?",
+      answers: [
+        {
+          id: "q9-a1",
+          action: "",
+          text: "Tendencia de sangrado",
+          color: "positive"
+        },
+        {
+          id: "q9-a2",
+          action: "",
+          text: "Reaccion a la Anestecia local",
+          color: "positive"
+        },
+        {
+          id: "q9-a3",
+          action: "",
+          text: "Reaccion a anticuagulantes",
+          color: "positive"
+        },
+        {
+          id: "q9-a4",
+          action: "",
+          text: "Gastritis",
+          color: "positive"
+        },
+        {
+          id: "q9-a5",
+          action: "",
+          text: "Desmayos",
+          color: "positive"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿El tratamiento dental lo pone nervioso?",
+      answers: [
+        {
+          id: "q10-a1",
+          action: "q1_soso()",
+          text: "Si",
+          color: "assertive"
+        },
+        {
+          id: "q10-a2",
+          action: "q1_good()",
+          text: "No",
+          color: "positive"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿Ha tenido algún sangrado excesivo durante una extracción?",
+      answers: [
+        {
+          id: "q11-a1",
+          action: "q1_bad()",
+          text: "Si",
+          color: "assertive"
+        },
+        {
+          id: "q11-a2",
+          action: "q1_good()",
+          text: "No",
+          color: "balanced"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿Bebe usted más de dos bebidas alcohólicas diarias?",
+      answers: [
+        {
+          id: "q11-a1",
+          action: "q1_bad()",
+          text: "Si",
+          color: "assertive"
+        },
+        {
+          id: "q11-a2",
+          action: "q1_good()",
+          text: "No",
+          color: "balanced"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿Ha estado hospitalizado o sufre de alguna enfermedad grave?",
+      answers: [
+        {
+          id: "q12-a1",
+          action: "q1_bad()",
+          text: "Si",
+          color: "assertive"
+        },
+        {
+          id: "q12-a2",
+          action: "q1_good()",
+          text: "No",
+          color: "balanced"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
     }
   ];
 
@@ -407,11 +551,11 @@ angular.module('dentistapp.controllers', [])
       myEl.children(0).addClass('hide');
     }, 2000);
   };
-
+/*
   $scope.disabledButons = function(ids){
     for(var i = 0; i < ids.length ; i++){
       angular.element( document.querySelector( '#' + ids[i] ) ).attr("disabled", "disabled");
     }
   };
-
+*/
 });
