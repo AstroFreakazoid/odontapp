@@ -1,10 +1,38 @@
 <ion-view hide-back-button="true" view-title="Historial Clínico">
-  <ion-nav-bar class="bar-light">
-  </ion-nav-bar>
-  <ion-content class="has-header blue-bg">
-    <ion-list>
-      <ion-item menu-close href="#/app/profile"><i class="icon ion-calendar"></i>  Información personal</ion-item>
-      <ion-item menu-close href="#/app/questionary"><i class="icon ion-medkit"></i>  Información clínica</ion-item>
-    </ion-list>
+  <ion-content class="has-header">
+    <div class="row row-no-padding">
+      <div class="col cover-background basic_bg" ng-click="goTo( 'app.profile' )">
+        <div class="go-button"><i class="icon ion-log-in white"></i></div>
+        <div class="box-it">
+          <h3><i class="icon ion-person"></i> Información personal</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="row row-no-padding">
+      <div class="col cover-background doctor_bg" ng-click="goTo( 'app.questionary' )">
+        <div class="go-button"><i class="icon ion-log-in"></i></div>
+        <div class="box-it">
+          <h3><i class="icon ion-medkit"></i> Información clínica</h3>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <div class="clearfix"></div>
+      </div>
+    </div>
+    <div class="row row-no-padding">
+      <div class="col cover-background dentist_bg" ng-click="goTo( 'app.calendar' )">
+        <div class="go-button"><i class="icon ion-log-in white"></i></div>
+        <div class="box-it">
+          <h3><i class="icon ion-calendar"></i> Historial de citas</h3>
+        </div>
+      </div>
+    </div>
   </ion-content>
 </ion-view>
