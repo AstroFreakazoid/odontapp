@@ -1,48 +1,47 @@
 angular.module('dentistapp.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera, $ionicPopup) {
-  $scope.loginData = {};
 
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+  .controller('LoginCtrl', function($scope, $ionicHistory, $ionicSideMenuDelegate) {
+    $scope.loginData = {};
+    $scope.doLogin = function() {
+      console.log('Doing login', $scope.loginData);
+      if( ( $scope.loginData.username == 'usuario' ) && ( $scope.loginData.password == 'usuario' ) ){
+        AppService.setUser( $scope.loginData );
+        $ionicSideMenuDelegate.canDragContent(true);
+        $rootScope.goTo( 'app.dashboard' );
+      } else{
+        AppService.showMessage( 'Información incorrecta', 'El usuario y/o la contraseña son incorrectos.' );
+      }
+    };
+  })
+  .controller('AppCtrl', function($scope, $ionicModal, $timeout, AppService, $rootScope, $cordovaCamera, $ionicPopup) {
 
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
-
-  $scope.login = function() {
-    $scope.modal.show();
-  };
-
-  $scope.appointments = [
-    {
-      title: 'Extracción de molar',
-      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
-      place: 'Consultorio Doctor Castro.',
-      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
-    },
-    {
-      title: 'Extracción de molar',
-      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
-      place: 'Consultorio Doctor Castro.',
-      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
-    },
-    {
-      title: 'Extracción de molar',
-      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
-      place: 'Consultorio Doctor Castro.',
-      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
-    },
-    {
-      title: 'Extracción de molar',
-      datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
-      place: 'Consultorio Doctor Castro.',
-      text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
-    }
-  ];
+    $scope.appointments = [
+      {
+        title: 'Extracción de molar',
+        datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+        place: 'Consultorio Doctor Castro.',
+        text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+      },
+      {
+        title: 'Extracción de molar',
+        datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+        place: 'Consultorio Doctor Castro.',
+        text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+      },
+      {
+        title: 'Extracción de molar',
+        datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+        place: 'Consultorio Doctor Castro.',
+        text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+      },
+      {
+        title: 'Extracción de molar',
+        datetime: '17 de Octubre, 12:00 m.d. - 2:30 p.m.',
+        place: 'Consultorio Doctor Castro.',
+        text: 'Para esta sesión vamos a necesitar al menos una hora, vente preparado.'
+      }
+    ];
 
   $scope.saveSettings = function () {
 
@@ -66,18 +65,6 @@ angular.module('dentistapp.controllers', [])
     }, function(err) {
       // error
     });
-  };
-
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
-    if( ( $scope.loginData.username == 'usuario' ) && ( $scope.loginData.password == 'usuario' ) ){
-      AppService.setUser( $scope.loginData );
-      $rootScope.goTo( 'app.dashboard' );
-    }
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
   };
 
   $scope.calendar = {

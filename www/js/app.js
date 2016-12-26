@@ -11,7 +11,7 @@ angular.module('dentistapp',
     'dentistapp.controllers',
     'dentistapp.services'])
 
-.run(function($ionicPlatform, AppService) {
+.run(function($ionicPlatform, AppService, $ionicSideMenuDelegate, $ionicHistory) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -24,6 +24,10 @@ angular.module('dentistapp',
       StatusBar.styleDefault();
     }
     AppService.init();
+    $ionicHistory.nextViewOptions({
+      disableBack: true
+    });
+    $ionicSideMenuDelegate.canDragContent(false);
   });
 })
 
@@ -47,7 +51,7 @@ angular.module('dentistapp',
     })
     .state('app.login', {
       url: '/login',
-      controller: 'AppCtrl',
+      controller: 'LoginCtrl',
       views: {
         'menuContent': {
           templateUrl: 'templates/login.html',

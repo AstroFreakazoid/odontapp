@@ -3,7 +3,7 @@
  */
 var Services = angular.module('dentistapp.services', []);
 
-Services.factory( "AppService", function( $rootScope, $state ) {
+Services.factory( "AppService", function( $rootScope, $state, $ionicPopup) {
   var global = {
     appVersion : '1.3',
     shareURL : '',
@@ -34,6 +34,12 @@ Services.factory( "AppService", function( $rootScope, $state ) {
     $rootScope.goTo = function(pScreen) {
       $state.transitionTo( pScreen );
     };
+  };
+  global.showMessage = function( pTitle, pMessage ){
+    $ionicPopup.alert({
+      title: pTitle,
+      template: pMessage
+    });
   };
   return global;
 });

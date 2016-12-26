@@ -1,9 +1,9 @@
-<ion-view hide-back-button="true" hide-menu-button="true" view-title="Iniciar Sesión">
+<ion-view hide-nav-bar="true" hide-back-button="true" hide-menu-button="true" view-title="Iniciar Sesión">
   <ion-nav-bar class="bar-light">
   </ion-nav-bar>
   <ion-content class="blue-bg">
     <div class="relative">
-      <form class="center-vertical" ng-submit="doLogin()">
+      <form class="center-vertical">
         <h1 class="text-center white">Bienvenido a Dentistapp</h1>
         <div class="list">
           <label class="item item-input">
@@ -15,7 +15,7 @@
             <input type="password" ng-model="loginData.password">
           </label>
           <label class="item transparent-item">
-            <button class="button button-block button-stable" type="submit">Iniciar Sesión</button>
+            <button class="button button-block button-stable" ng-click="doLogin()">Iniciar Sesión</button>
           </label>
         </div>
       </form>
