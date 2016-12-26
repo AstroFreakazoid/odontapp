@@ -56,7 +56,7 @@ angular.module('dentistapp.controllers', [])
     date: new Date(),
     mondayFirst: false,
     months: [ "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Setiembre", "Octubre", "Noviembre", "Diciembre" ],
-    calendarWeekdayHeaders: ["Do", "Lu", "Ma", "Mi", "Ju", "Vi", "Sa"],
+    calendarWeekdayHeaders: ["D", "L", "M", "K", "J", "V", "S"],
     startDate: new Date(),
     endDate: new Date( ( new Date().getFullYear() ), 11, 31 ),
     disablePastDays: true,
