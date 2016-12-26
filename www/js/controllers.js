@@ -201,30 +201,168 @@ angular.module('dentistapp.controllers', [])
   $scope.isItemShown = function(item) {
     return $scope.shownItem === item;
   };
+
   $scope.questionsList = [
     {
       question: "Cual es su estado de salud?",
-      answers: [ "Bueno", "Malo", "Regular" ],
+      answers: [
+        {
+          id: "q1-a1",
+          action: "q1_good()",
+          text: "Bueno",
+          color: "balanced"
+        },
+        {
+
+          id: "q1-a2",
+          action: "q1_bad()",
+          text: "Malo",
+          color: "assertive"
+        },
+        {
+          id: "q1-a3",
+          action: "q1_soso()",
+          text: "Regular",
+          color: "positive"
+        }
+      ],
       help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
     },
     {
       question: "En los últimos dos años ha sufrido cambios de salud?",
-      answers: [ "Si", "No" ],
+      answers: [
+        {
+          id: "q2-a1",
+          action: "",
+          text: "Si",
+          color: "positive"
+        },
+        {
+          id: "q2-a2",
+          action: "",
+          text: "No",
+          color: "balanced"
+        }
+      ],
       help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
     },
     {
       question: "Cuándo fue su último exámen médico? 2016-01-23",
-      answers: [ "Ingrese una fecha" ],
-      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+      answers: [
+        {
+          id: "q3-a1",
+          action: "",
+          text: "Ingrese una fecha",
+          color: "balanced"
+        }
+      ],help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
     },
     {
       question: "Está actualmente bajo algún tratamiento médico?",
-      answers: [ "Si", "No" ],
+      answers: [
+        {
+          id: "q4-a1",
+          action: "",
+          text: "Si",
+          color: "balanced"
+        },
+        {
+          id: "q4-a2",
+          action: "",
+          text: "No",
+          color: "positive"
+        }
+      ],
       help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
     },
     {
-      question: "Fuma usted? R/Si",
-      answers: [ "Si", "No" ],
+      question: "Fuma usted?",
+      answers: [
+        {
+          id: "q5-a1",
+          action: "",
+          text: "Si",
+          color: "assertive"
+        },
+        {
+          id: "q5-a2",
+          action: "",
+          text: "No",
+          color: "balanced"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "Ha padecido alguna de las siguientes condiciones?",
+      answers: [
+        {
+          id: "q6-a1",
+          action: "",
+          text: "Encias sangrantes o sensibles",
+          color: "positive"
+        },
+        {
+          id: "q6-a2",
+          action: "",
+          text: "Ampolloas y/o llagas",
+          color: "positive"
+        },
+        {
+          id: "q6-a3",
+          action: "",
+          text: "Dientes movibles",
+          color: "positive"
+        },
+        {
+          id: "q6-a4",
+          action: "",
+          text: "Sensibilidad dental",
+          color: "positive"
+        },
+        {
+          id: "q6-a5",
+          action: "",
+          text: "Cambio en la mordida",
+          color: "positive"
+        }
+      ],
+      help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
+    },
+    {
+      question: "¿Padece usted alguna de las siguientes condiciones?",
+      answers: [
+        {
+          id: "q7-a1",
+          action: "",
+          text: "Se cansa facilmente",
+          color: "positive"
+        },
+        {
+          id: "q7-a2",
+          action: "",
+          text: "Sudoracion Noctura",
+          color: "positive"
+        },
+        {
+          id: "q7-a3",
+          action: "",
+          text: "Perdida de la audición",
+          color: "positive"
+        },
+        {
+          id: "q7-a4",
+          action: "",
+          text: "Ataques o crisis",
+          color: "positive"
+        },
+        {
+          id: "q7-a5",
+          action: "",
+          text: "Mareo o Vertigo",
+          color: "positive"
+        }
+      ],
       help: "Lorem ipsum dolor sit amet, consectetur adipisicing elit. A adipisci aspernatur atque commodi consectetur eligendi, eos, harum inventore laborum magnam maiores maxime quae qui quia repellat reprehenderit saepe sapiente veritatis!"
     }
   ];
@@ -236,7 +374,7 @@ angular.module('dentistapp.controllers', [])
     var myPopup = $ionicPopup.show({
       title: "Ayuda",
       subTitle: help,
-      template: '<div class="center-img" ><img src="../img/ionic.png"></img></div>',
+      template: '<div class="center-img" ><img src="../img/ionic.png" /></div>',
       scope: $scope,
       buttons: [
         { text: 'Mas Info.' },
@@ -255,18 +393,24 @@ angular.module('dentistapp.controllers', [])
     */
   };
 
-  $scope.correctAnswer = function(){
-    this.animateAnswer( "../img/check.png", ["a-bueno","a-malo","a-regular"] );
+  $scope.q1_good = function(){
+    this.animateAnswer( "../img/check.png" );
+
+    alert("GOOD ANSWER");
+
   };
-  $scope.badAnswer = function(){
-    this.animateAnswer( "../img/bad.png", ["a-bueno","a-malo","a-regular"] );
+  $scope.q1_bad = function(){
+    this.animateAnswer( "../img/bad.png" );
+
+    alert("BAD ANSWER");
   };
-  $scope.sosoAnswer = function(){
-    this.animateAnswer( "../img/hand.png", ["a-bueno","a-malo","a-regular"] );
+  $scope.q1_soso = function(){
+    this.animateAnswer( "../img/hand.png" );
+
+    alert("SOSO ANSWER");
   };
 
-  $scope.animateAnswer = function(path, ids){
-    this.disabledButons(ids); // disabled buttons
+  $scope.animateAnswer = function(path){
     var myEl = angular.element( document.querySelector( '#icon-answer' ) );
     myEl.children(0).removeClass('hide');
     myEl.children(0).attr("src", path);
