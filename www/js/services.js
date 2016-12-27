@@ -31,9 +31,17 @@ Services.factory( "AppService", function( $rootScope, $state, $ionicPopup) {
   global.initNetwork = function () {};
   global.initPush = function () {};
   global.init = function () {
+    $rootScope.toggledrag = false;
     $rootScope.goTo = function(pScreen) {
       $state.transitionTo( pScreen );
     };
+  };
+  global.login = function ( pUsername, pPassword ) {
+    var res = ( ( pUsername == 'usuario' ) && ( pPassword == 'usuario' ) );
+    if( res ){
+      $rootScope.toggledrag = true;
+    }
+    return res;
   };
   global.showMessage = function( pTitle, pMessage ){
     $ionicPopup.alert({

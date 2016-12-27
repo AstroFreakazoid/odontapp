@@ -11,7 +11,7 @@ angular.module('dentistapp',
     'dentistapp.controllers',
     'dentistapp.services'])
 
-.run(function($ionicPlatform, AppService, $ionicSideMenuDelegate, $ionicHistory) {
+.run(function($ionicPlatform, AppService) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
     // for form inputs)
@@ -24,16 +24,12 @@ angular.module('dentistapp',
       StatusBar.styleDefault();
     }
     AppService.init();
-    $ionicHistory.nextViewOptions({
-      disableBack: true
-    });
-    $ionicSideMenuDelegate.canDragContent(false);
   });
 })
 
-.config(function($stateProvider, $urlRouterProvider) {
+.config(function($stateProvider, $urlRouterProvider, $ionicConfigProvider) {
+  $ionicConfigProvider.navBar.alignTitle('center');
   $stateProvider
-
     .state('app', {
       url: '/app',
       abstract: true,
@@ -44,44 +40,63 @@ angular.module('dentistapp',
       url: '/register',
       views: {
         'menuContent': {
+          controller: 'LoginCtrl',
           templateUrl: 'templates/register.html',
+
+        }
+      }
+    })
+    .state('app.messages', {
+      url: '/messages',
+      views: {
+        'menuContent': {
+          controller: 'AppCtrl',
+          templateUrl: 'templates/messages.html',
+        }
+      }
+    })
+    .state('app.settings', {
+      url: '/settings',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/settings.html',
           controller: 'AppCtrl'
         }
       }
     })
     .state('app.login', {
       url: '/login',
-      controller: 'LoginCtrl',
       views: {
         'menuContent': {
           templateUrl: 'templates/login.html',
-        }
-      }
-    })
-    .state('app.messages', {
-      url: '/messages',
-      controller: 'AppCtrl',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/messages.html',
+          controller: 'LoginCtrl'
         }
       }
     })
     .state('app.history', {
-    url: '/history',
-    controller: 'AppCtrl',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/history.html',
-      }
-    }
-  })
-    .state('app.dashboard', {
-      url: '/dashboard',
-      controller: 'AppCtrl',
+      url: '/history',
       views: {
         'menuContent': {
+          controller: 'AppCtrl',
+          templateUrl: 'templates/history.html',
+        }
+      }
+    })
+    .state('app.dashboard', {
+      url: '/dashboard',
+      views: {
+        'menuContent': {
+          controller: 'AppCtrl',
           templateUrl: 'templates/dashboard.html'
+        }
+      }
+    })
+    .state('app.payment', {
+      url: '/payment',
+      views: {
+        'menuContent': {
+          controller: 'AppCtrl',
+          templateUrl: 'templates/payment.html'
         }
       }
     })
@@ -96,10 +111,11 @@ angular.module('dentistapp',
     })
     .state('app.questionary', {
       url: '/questionary',
-      controller: 'AppCtrl',
       views: {
         'menuContent': {
+          controller: 'AppCtrl',
           templateUrl: 'templates/questionary.html'
+
         }
       }
     })
@@ -120,16 +136,7 @@ angular.module('dentistapp',
           controller: 'AppCtrl'
         }
       }
-    })
-    .state('app.settings', {
-    url: '/settings',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/settings.html',
-        controller: 'AppCtrl'
-      }
-    }
-  });
+    });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/login');
 });

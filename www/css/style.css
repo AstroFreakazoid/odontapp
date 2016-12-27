@@ -21,7 +21,8 @@
 .text-bottom{
   position: absolute;
   bottom: 0px;
-  width: 100%
+  width: 100%;
+  background: #000000;
 }
 .take-pic{
   font-size: 25px;
@@ -140,18 +141,15 @@ ion-scroll[direction=y] {
 .color-lightblue{
   background-color: lightblue;
 }
-
 .center-img{
   text-align: center;
   margin: 0 auto;
 }
-
 .help-btn{
   position: absolute;
   top: 10px;
   right: 10px;
 }
-
 #icon-answer{
   position: absolute;
   bottom: 25px;
@@ -164,13 +162,79 @@ ion-scroll[direction=y] {
   width: 80px;
 
 }
-
 .animateAnswer{
   -webkit-animation: desva 1s linear; /* Safari 4.0 - 8.0 */
   animation: desva 1s linear;
 }
-
 @keyframes desva {
   0% { transform: translateY(205px); }
   100% { transform: translateY(0px); }
+}
+.cover-background{
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  overflow: hidden;
+  position: relative;
+}
+.history_bg{
+  height: 171px;
+}
+.cover-background .box-it{
+  bottom: 0;
+  margin: 20px;
+  padding-left: 5px;
+  padding-right: 5px;
+  position: absolute;
+}
+.basic_bg{
+  background-image: url( '../img/fill_form.jpg' );
+  //background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../img/fill_form.jpg');
+}
+.doctor_bg{
+  background-image: linear-gradient( rgba(0, 0, 0, 0.08), rgba(0, 0, 0, 0.08) ), url('../img/doctor.jpg');
+  //background-image: url( '../img/doctor.jpg' );
+}
+.dentist_bg{
+  background-image: url( '../img/dentist.jpg' );
+}
+.box-it{
+  border: 1px solid;
+  box-shadow: 5px 5px 5px;
+  background: white;
+}
+h3, .h3 {
+  font-size: 22px;
+}
+.go-button {
+  position: absolute;
+  right: 15px;
+  top: 15px;
+}
+.go-button i {
+  font-size: 50px;
+  opacity: 0.5;
+}
+.smiles_bg{
+  background-image: url( '../img/smiles.jpg' );
+  height: 645px;
+  /*-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0
+  filter: grayscale(100%);
+  position: fixed;*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.login div, .login h1 {
+  z-index: 3;
+}
+.login p {
+  z-index: 3;
+}
+.button.button-block.button-stable{
+  font-size: 21px !important;
 }

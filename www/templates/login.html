@@ -1,24 +1,27 @@
 <ion-view hide-nav-bar="true" hide-back-button="true" hide-menu-button="true" view-title="Iniciar Sesión">
-  <ion-nav-bar class="bar-light">
-  </ion-nav-bar>
-  <ion-content class="blue-bg">
+  <div class="cover-background smiles_bg"></div>
+  <ion-content>
     <div class="relative">
-      <form class="center-vertical">
-        <h1 class="text-center white">Bienvenido a Dentistapp</h1>
+      <div class="center-vertical">
+        <div class="row">
+          <div class="col">
+            <h1 class="text-center">Bienvenido a Dentistapp</h1>
+          </div>
+        </div>
         <div class="list">
           <label class="item item-input">
             <span class="input-label">Usuario</span>
-            <input type="text" ng-model="loginData.username">
+            <input type="text" ng-model="user.nick">
           </label>
           <label class="item item-input">
             <span class="input-label">Contraseña</span>
-            <input type="password" ng-model="loginData.password">
+            <input type="password" ng-model="user.pass">
           </label>
           <label class="item transparent-item">
-            <button class="button button-block button-stable" ng-click="doLogin()">Iniciar Sesión</button>
+            <button class="button button-block button-stable" ng-click="goLogin()">Iniciar Sesión <i class="icon ion-log-in"></i></button>
           </label>
         </div>
-      </form>
+      </div>
     </div>
   </ion-content>
   <div class="text-bottom">
