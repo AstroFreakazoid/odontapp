@@ -21,7 +21,8 @@
 .text-bottom{
   position: absolute;
   bottom: 0px;
-  width: 100%
+  width: 100%;
+  background: #000000;
 }
 .take-pic{
   font-size: 25px;
@@ -176,8 +177,10 @@ ion-scroll[direction=y] {
   background-position: center !important;
   background-repeat: no-repeat !important;
   overflow: hidden;
-  height: 195px;
   position: relative;
+}
+.history_bg{
+  height: 195px;
 }
 .cover-background .box-it{
   bottom: 0;
@@ -214,6 +217,24 @@ h3, .h3 {
   font-size: 50px;
   opacity: 0.5;
 }
-.white{
-  color: white;
+.smiles_bg{
+  background-image: url( '../img/smiles.jpg' );
+  height: 645px;
+  /*-webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0
+  filter: grayscale(100%);
+  position: fixed;*/
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.login div, .login h1 {
+  z-index: 3;
+}
+.login p {
+  z-index: 3;
+}
+.button.button-block.button-stable{
+  font-size: 21px !important;
 }
